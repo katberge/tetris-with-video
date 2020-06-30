@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // rotate
         } 
         if (e.keyCode == 39) {
-            // move right
+            moveRight();
         }
         if (e.keyCode == 40) {
             moveDown();
@@ -111,7 +111,20 @@ document.addEventListener('DOMContentLoaded', () => {
             currentPosition -= 1;
         }
         if (current.some(i => squares[currentPosition + i].classList.contains("taken"))) {
-            current += 1
+            current += 1;
+        }
+        draw();
+    }
+
+    // move Tetromino right (unless there is an edge or block) 
+    function moveRight() {
+        undraw();
+        const atRightEdge = current.some(i => (currentPosition + i + 1) % width == 0)
+        if (!atRightEdge) {
+            currentPosition += 1;
+        }
+        if (current.some(i => squares[currentPosition + i].classList.contains("taken"))) {
+            current -= 1;
         }
         draw();
     }
