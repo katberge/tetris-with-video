@@ -46,10 +46,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const theTetrominoes = [lTetromino, tTetromino, zTetromino, oTetromino, iTetromino]
 
     let currentPosition = 4;
+    let currentRotation = 0;
     
     // randomly select Tetromino in its first rotation
     let random = Math.floor(Math.random() * theTetrominoes.length);
-    let current = theTetrominoes[random][0];
+    let current = theTetrominoes[random][currentRotation];
 
     // draw the Tetromino
     function draw() {
@@ -71,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
             moveLeft();
         } 
         if (e.keyCode == 38) {
-            // rotate
+            rotate();
         } 
         if (e.keyCode == 39) {
             moveRight();
@@ -97,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
             current.forEach(i => squares[currentPosition + i].classList.add("taken"));
             // start new Tetromino falling
             random = Math.floor(Math.random() * theTetrominoes.length);
-            current = theTetrominoes[random][0];
+            current = theTetrominoes[random][currentRotation];
             currentPosition = 4;
             draw();
         }
@@ -126,6 +127,17 @@ document.addEventListener('DOMContentLoaded', () => {
         if (current.some(i => squares[currentPosition + i].classList.contains("taken"))) {
             current -= 1;
         }
+        draw();
+    }
+
+    // rotate Tetromino
+    function rotate() {
+        undraw();
+        currentRotation++;
+        if (currentRotation == current.length) {
+            currentRotation = 0;
+        }
+        current = theTetrominoes[random][currentRotation];
         draw();
     }
 })
