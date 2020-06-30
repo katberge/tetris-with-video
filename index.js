@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // move Tetromino right (unless there is an edge or block) 
     function moveRight() {
         undraw();
-        const atRightEdge = current.some(i => (currentPosition + i + 1) % width == 0)
+        const atRightEdge = current.some(i => (currentPosition + i + 1) % width == 0);
         if (!atRightEdge && !current.some(i => squares[currentPosition + i + 1].classList.contains("taken"))) {
             currentPosition += 1;
         }
@@ -150,6 +150,9 @@ document.addEventListener('DOMContentLoaded', () => {
             currentRotation = 0;
         }
         current = theTetrominoes[random][currentRotation];
+        while (current.some(i => (currentPosition + i) % width == 0) && current.some(i => (currentPosition + i + 1) % width == 0)) {
+            currentPosition--;
+        }
         draw();
     }
 
