@@ -126,11 +126,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function moveLeft() {
         undraw();
         const atLeftEdge = current.some(i => (currentPosition + i) % width == 0);
-        if (!atLeftEdge) {
+        if (!atLeftEdge && !current.some(i => squares[currentPosition + i - 1].classList.contains("taken"))) {
             currentPosition -= 1;
-        }
-        if (current.some(i => squares[currentPosition + i].classList.contains("taken"))) {
-            current += 1;
         }
         draw();
     }
@@ -139,11 +136,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function moveRight() {
         undraw();
         const atRightEdge = current.some(i => (currentPosition + i + 1) % width == 0)
-        if (!atRightEdge) {
+        if (!atRightEdge && !current.some(i => squares[currentPosition + i + 1].classList.contains("taken"))) {
             currentPosition += 1;
-        }
-        if (current.some(i => squares[currentPosition + i].classList.contains("taken"))) {
-            current -= 1;
         }
         draw();
     }
