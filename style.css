@@ -29,7 +29,8 @@ body {
 
 .mini-grid {
     margin-left: 15px;
-    width: 80px;
+    padding: 20px 0;
+    width: 100px;
     height: 80px;
     display: flex;
     flex-wrap: wrap;

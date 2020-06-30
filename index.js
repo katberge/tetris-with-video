@@ -158,16 +158,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // to show next-up Tetromino in the mini grid
     const displaySquares = (document.querySelectorAll(".mini-grid div"));
-    const displayWidth = 4;
+    const displayWidth = 5;
     const displayIndex = 0;
 
-    // Tetrominoes in the diplay grid (only first rotation)
+    // Tetrominoes in the diplay grid (no rotations)
     const upNext = [
-        [1, displayWidth + 1, displayWidth * 2 + 1, 2], // lTetromino
-        [1, displayWidth, displayWidth + 1, displayWidth + 2], // tTetromino
-        [0, displayWidth, displayWidth + 1, displayWidth * 2 + 1], // zTetromino
-        [0, 1, displayWidth, displayWidth + 1], // oTetromino
-        [1, displayWidth + 1, displayWidth * 2 + 1, displayWidth * 3 + 1] // iTetromino
+        [displayWidth + 1, displayWidth + 2, displayWidth + 3, displayWidth * 2 + 3], // lTetromino
+        [displayWidth + 2, displayWidth * 2 + 1, displayWidth * 2 + 2, displayWidth * 2 + 3], // tTetromino
+        [displayWidth + 2, displayWidth + 3, displayWidth * 2 + 1, displayWidth * 2 + 2], // zTetromino
+        [displayWidth + 1, displayWidth + 2, displayWidth * 2+ 1, displayWidth * 2 + 2], // oTetromino
+        [2, displayWidth + 2, displayWidth * 2 + 2, displayWidth * 3 + 2] // iTetromino
     ]
 
     //display Tetromino in minigrid
