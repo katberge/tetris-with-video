@@ -23,10 +23,6 @@ body {
     height: 20px;
 }
 
-.tetromino {
-    background-color: purple;
-}
-
 .mini-grid {
     margin-left: 15px;
     padding: 20px 0;
