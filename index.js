@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // creates varible for the width of the grid
     const width = 10;
     let nextRandom = 0;
+    let timerId;
 
     //the tetrominoes
     const lTetromino = [
@@ -85,7 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
      document.addEventListener("keyup", control);
 
     // makes Tetrominos move down every second
-    const timerId = setInterval(moveDown, 1000);
     function moveDown() { 
         undraw();
         currentPosition += width;
@@ -168,4 +168,17 @@ document.addEventListener('DOMContentLoaded', () => {
             displaySquares[displayIndex + i].classList.add("tetromino");
         });
     }
+
+    // adds functionality to the start button
+    startBtn.addEventListener("click", () => {
+        if (timerId) {
+            clearInterval(timerId);
+            timerId = null;
+        } else {
+            draw();
+            timerId = setInterval(moveDown, 1000);
+            nextRandom = Math.floor(Math.random() * theTetrominoes.length);
+            displayShape();
+        }
+    })
 })
