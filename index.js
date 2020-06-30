@@ -3,7 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // creates an array of all the boxes (each one is a div) in the grid
     let squares = Array.from(document.querySelectorAll(".grid div")); 
     const scoreDisplay = document.querySelector("#score");
-    const startBtn = document.querySelector("#start-button")
+    const startBtn = document.querySelector("#start-button");
+    const restartBtn = document.querySelector("#restart-button");
     // creates varible for the width of the grid
     const width = 10;
     let nextRandom = 0;
@@ -195,6 +196,11 @@ document.addEventListener('DOMContentLoaded', () => {
             document.addEventListener("keyup", control);
             displayShape();
         }
+    })
+
+    // adds functionality to the restart button 
+    restartBtn.addEventListener("click", () => {
+        location.reload();
     })
 
     // adds to game score 
