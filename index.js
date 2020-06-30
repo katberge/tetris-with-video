@@ -188,9 +188,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (timerId) {
             clearInterval(timerId);
             timerId = null;
+            document.removeEventListener("keyup", control);
         } else {
             draw();
             timerId = setInterval(moveDown, 1000);
+            document.addEventListener("keyup", control);
             nextRandom = Math.floor(Math.random() * theTetrominoes.length);
             displayShape();
         }
