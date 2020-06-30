@@ -85,9 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.keyCode == 37) {
             moveLeft();
         } 
-        if (e.keyCode == 38) {
-            rotate();
-        } 
         if (e.keyCode == 39) {
             moveRight();
         }
@@ -95,7 +92,15 @@ document.addEventListener('DOMContentLoaded', () => {
             moveDown();
         }
      }
-     document.addEventListener("keyup", control);
+
+     function keyUpControl(e) {
+        if (e.keyCode == 38) {
+            rotate();
+        } 
+     }
+
+     document.addEventListener("keydown", control);
+     document.addEventListener("keyup", keyUpControl);
 
     // makes Tetrominos move down every second
     function moveDown() { 
@@ -185,11 +190,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (timerId) {
             clearInterval(timerId);
             timerId = null;
-            document.removeEventListener("keyup", control);
+            document.removeEventListener("keydown", control);
+            document.removeEventListener("keyup", keyUpControl);
         } else {
             draw();
             timerId = setInterval(moveDown, 1000);
-            document.addEventListener("keyup", control);
+            document.addEventListener("keydown", control);
+            document.addEventListener("keyup", keyUpControl);
             displayShape();
         }
     })
