@@ -70,5 +70,18 @@ document.addEventListener('DOMContentLoaded', () => {
         undraw();
         currentPosition += width;
         draw();
+        freeze();
+    }
+
+    // make it so Tetrominoes stop at the bottom of the grid
+    function freeze() {
+        if (current.some(i => squares[currentPosition + i + width].classList.contains("taken"))) {
+            current.forEach(i => squares[currentPosition + i].classList.add("taken"));
+            // start new Tetromino falling
+            random = Math.floor(Math.random() * theTetrominoes.length);
+            current = theTetrominoes[random][0];
+            currentPosition = 4;
+            draw();
+        }
     }
 })
