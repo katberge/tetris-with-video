@@ -193,7 +193,6 @@ document.addEventListener('DOMContentLoaded', () => {
             draw();
             timerId = setInterval(moveDown, 1000);
             document.addEventListener("keyup", control);
-            nextRandom = Math.floor(Math.random() * theTetrominoes.length);
             displayShape();
         }
     })
