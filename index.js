@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // creates varible for the width of the grid
     const width = 10;
     let nextRandom = 0;
-    let timerId;
+    let timerId = null;
     let score = 0;
     scoreDisplay.innerHTML = score;
     let level = 1;
