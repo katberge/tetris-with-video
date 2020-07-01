@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let score = 0;
     scoreDisplay.innerHTML = score;
     let level = 1;
+    let milliseconds = 1000;
 
     // color asignment for tetrominoes (in order of theTetrominoes array)
     const colors = [
@@ -189,14 +190,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // adds functionality to the start button
     startBtn.addEventListener("click", () => {
-        if (timerId) {
+        if (timerId !== null) {
             clearInterval(timerId);
             timerId = null;
             document.removeEventListener("keydown", control);
             document.removeEventListener("keyup", keyUpControl);
         } else {
             draw();
-            timerId = setInterval(moveDown, 1000);
+            timerId = setInterval(moveDown, milliseconds);
             document.addEventListener("keydown", control);
             document.addEventListener("keyup", keyUpControl);
             displayShape();
@@ -232,18 +233,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // allows levels to change 
     function levelUp() {
-        if (score % 50 == 0) {
+        if (score % 100 == 0) {
             level++;
             levelDisplay.innerHTML = level;
-            scoreAdd += 10;
+            scoreAdd += 5;
+            milliseconds /= 1.05;
+            timerId = setInterval(moveDown, milliseconds);
         }
     }
-
+        
     // creates a way to lose the game (game over)
     function gameOver() {
         if (current.some(i => squares[currentPosition + i].classList.contains("taken"))) {
             clearInterval(timerId);
             alert("Game Over :(");
+            location.reload();
         }
     }
 })
