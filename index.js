@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const grid = document.querySelector(".grid");
     // creates an array of all the boxes (each one is a div) in the grid
     let squares = Array.from(document.querySelectorAll(".grid div")); 
+    const levelDisplay = document.querySelector("#level");
     const scoreDisplay = document.querySelector("#score");
     const startBtn = document.querySelector("#start-button");
     const restartBtn = document.querySelector("#restart-button");
@@ -11,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let timerId;
     let score = 0;
     scoreDisplay.innerHTML = score;
+    let level = 1;
 
     // color asignment for tetrominoes (in order of theTetrominoes array)
     const colors = [
@@ -207,12 +209,16 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     // adds to game score 
+    let scoreAdd = 10;
     function addScore() {
         for (let i = 0; i <= 199; i += width) {
             const row = [i, i + 1, i + 2, i + 3, i + 4, i + 5, i + 6, i + 7, i + 8, i + 9];
             if (row.every(i => squares[i].classList.contains("taken"))) {
-                score += 10;
+                score += scoreAdd;
                 scoreDisplay.innerHTML = score;
+                // check levelUp functiion when score updates
+                levelUp();
+                // remove row
                 row.forEach(i => {
                     squares[i].classList.remove("taken");
                     squares[i].style.backgroundColor = "";
@@ -221,6 +227,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 squares = squaresRemoved.concat(squares);
                 squares.forEach(cell => grid.appendChild(cell));
             }
+        }
+    }
+
+    // allows levels to change 
+    function levelUp() {
+        if (score % 50 == 0) {
+            level++;
+            levelDisplay.innerHTML = level;
+            scoreAdd += 10;
         }
     }
 
