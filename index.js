@@ -210,12 +210,10 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     // adds to game score 
-    let scoreAdd = 10;
     function addScore() {
         for (let i = 0; i <= 199; i += width) {
             const row = [i, i + 1, i + 2, i + 3, i + 4, i + 5, i + 6, i + 7, i + 8, i + 9];
             if (row.every(i => squares[i].classList.contains("taken"))) {
-                score += scoreAdd;
                 scoreDisplay.innerHTML = score;
                 // check levelUp functiion when score updates
                 levelUp();
@@ -236,7 +234,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (score % 100 == 0) {
             level++;
             levelDisplay.innerHTML = level;
-            scoreAdd += 5;
             milliseconds /= 1.05;
             timerId = setInterval(moveDown, milliseconds);
         }
