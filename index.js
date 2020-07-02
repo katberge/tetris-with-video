@@ -235,7 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (score % 100 == 0) {
             level++;
             levelDisplay.innerHTML = level;
-            milliseconds /= 1.05;
+            milliseconds /= 1.01;
             timerId = setInterval(moveDown, milliseconds);
         }
     }
