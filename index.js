@@ -21,7 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
         "orange",
         "green",
         "blue",
-        "purple"
+        "purple",
+        "hotpink",
+        "deepskyblue"
     ]
 
     //the tetrominoes
@@ -39,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
         [1, width, width + 1, width * 2 + 1]
     ]
 
-    const zTetromino = [
+    const sTetromino = [
         [0, width, width + 1, width * 2 + 1],
         [width + 1, width + 2, width * 2, width * 2 + 1],
         [0, width, width + 1, width * 2 + 1],
@@ -60,7 +62,21 @@ document.addEventListener('DOMContentLoaded', () => {
         [width, width + 1, width + 2, width + 3]
     ]
 
-    const theTetrominoes = [lTetromino, tTetromino, zTetromino, oTetromino, iTetromino]
+    const jTetromino = [
+        [1, width + 2, width * 2 + 2, 2],
+        [width * 2, width * 2 + 1, width + 2, width * 2 + 2],
+        [1, width + 1, width * 2 + 1, width * 2 + 2],
+        [width, width + 1, width + 2, width * 2]
+    ]
+
+    const zTetromino = [
+        [1, width, width + 1, width * 2],
+        [width, width + 1, width * 2 + 1, width * 2 + 2],
+        [1, width, width + 1, width * 2],
+        [width, width + 1, width * 2 + 1, width * 2 + 2]
+    ]
+
+    const theTetrominoes = [lTetromino, tTetromino, sTetromino, oTetromino, iTetromino, jTetromino, zTetromino]
 
     let currentPosition = 4;
     let currentRotation = 0;
@@ -172,9 +188,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const upNext = [
         [displayWidth + 1, displayWidth + 2, displayWidth + 3, displayWidth * 2 + 3], // lTetromino
         [displayWidth + 2, displayWidth * 2 + 1, displayWidth * 2 + 2, displayWidth * 2 + 3], // tTetromino
-        [displayWidth + 2, displayWidth + 3, displayWidth * 2 + 1, displayWidth * 2 + 2], // zTetromino
+        [displayWidth + 2, displayWidth + 3, displayWidth * 2 + 1, displayWidth * 2 + 2], // sTetromino
         [displayWidth + 1, displayWidth + 2, displayWidth * 2+ 1, displayWidth * 2 + 2], // oTetromino
-        [2, displayWidth + 2, displayWidth * 2 + 2, displayWidth * 3 + 2] // iTetromino
+        [2, displayWidth + 2, displayWidth * 2 + 2, displayWidth * 3 + 2], // iTetromino
+        [displayWidth + 1, displayWidth + 2, displayWidth + 3, displayWidth * 2 + 1], // jTetromino
+        [displayWidth + 1, displayWidth + 2, displayWidth * 2 + 2, displayWidth * 2 + 3] // zTetromino
     ]
 
     //display Tetromino in minigrid
