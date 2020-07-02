@@ -9,12 +9,20 @@
 </head>
 <body>
     <h1 id="title">Tetris</h1>
-    <h3>Level: <span id="level">1</span></h3>
-    <h3>Score: <span id="score"></span></h3>
-    <button id="start-button">Start/Pause</button>
-    <button id="restart-button">Restart</button>
     
     <div id="container">
+        <div class="info-box">
+            <h3>Level: <span id="level">1</span></h3>
+            <h3>Score: <span id="score"></span></h3>
+            <button id="start-button">Start/Pause</button>
+            <button id="restart-button">Restart</button>
+            <h4 id="controls-title">Controls</h4>
+                <p><img class="icon" src="https://www.iconexperience.com/_img/v_collection_png/256x256/shadow/keyboard_key_left.png">Move Left</p>
+                <p><img class="icon" src="https://www.iconexperience.com/_img/v_collection_png/256x256/shadow/keyboard_key_right.png">Move Right</p>
+                <p><img class="icon" src="https://www.iconexperience.com/_img/v_collection_png/256x256/shadow/keyboard_key_down.png">Soft Drop</p>
+                <p><img class="icon" src="https://www.iconexperience.com/_img/v_collection_png/256x256/shadow/keyboard_key_up.png">Rotate</p>
+        </div>
+
         <div class="grid">
             <div></div>
             <div></div>
@@ -228,28 +236,31 @@
             <div class="taken"></div>
         </div>
 
-        <div class="mini-grid">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+        <div>
+            <h4 id="display-label">Up Next</h4>
+            <div class="mini-grid">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
         </div>
     </div>
 </body>
