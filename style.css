@@ -27,8 +27,12 @@ li {
 }
 
 .icon {
-    width: 20px;
+    height: 20px;
     margin: 0 3px -3px 0;
+}
+
+#spacebar {
+    border: .5px solid white;
 }
 
 button {
