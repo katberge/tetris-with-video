@@ -255,10 +255,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // allows levels to change 
     function levelUp() {
-        if (score % 100 == 0) {
+        if (score % 100 == 0 && level <= 10) {
             level++;
             levelDisplay.innerHTML = level;
-            milliseconds /= 1.01;
+            milliseconds /= 1.2;
             clearInterval(timerId);
             timerId = setInterval(moveDown, milliseconds);
         }
