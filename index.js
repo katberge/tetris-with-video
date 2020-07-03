@@ -118,6 +118,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.keyCode == 38) {
             rotate();
         } 
+        if (e.keyCode == 32) {
+            hardDrop();
+        }
      }
 
      document.addEventListener("keydown", control);
@@ -180,6 +183,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         draw();
     }
+
+    // hard drop Tetromino
+    function hardDrop() {
+        undraw();
+        while (!current.some(i => squares[currentPosition + i + width].classList.contains("taken"))) {
+            currentPosition += width;
+        }
+        draw();
+        freeze();
+    } 
 
     // to show next-up Tetromino in the mini grid
     const nextDisplay = (document.querySelector(".next-display"));
