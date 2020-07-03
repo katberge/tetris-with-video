@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let timerId = null;
     let score = 0;
     scoreDisplay.innerHTML = score;
+    let startOrPause = ["Start", "Pause"]
+    startBtn.innerHTML = startOrPause[0];
     let level = 1;
     let milliseconds = 1000;
 
@@ -212,11 +214,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (timerId !== null) {
             clearInterval(timerId);
             timerId = null;
+            startBtn.innerHTML = startOrPause[0];
             document.removeEventListener("keydown", control);
             document.removeEventListener("keyup", keyUpControl);
         } else {
             draw();
             timerId = setInterval(moveDown, milliseconds);
+            startBtn.innerHTML = startOrPause[1];
             document.addEventListener("keydown", control);
             document.addEventListener("keyup", keyUpControl);
             displayShape();
@@ -262,12 +266,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // creates a way to lose the game (game over)
     const gameOverMessage = document.querySelector("#game-over");
     const controls = document.querySelector("#controls");
+    const infoBox = document.querySelector(".info-box");
 
     function gameOver() {
         if (current.some(i => squares[currentPosition + i].classList.contains("taken"))) {
             clearInterval(timerId);
             gameOverMessage.style.display = "flex";
             restartBtn.style.margin = "15px";
+            infoBox.style.width = "250px";
             grid.style.display = "none";
             nextDisplay.style.display = "none";
             controls.style.display = "none";
