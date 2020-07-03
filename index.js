@@ -111,6 +111,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         if (e.keyCode == 40) {
             moveDown();
+            e.preventDefault();
+        }
+        if (e.keyCode == 38) {
+            e.preventDefault();
         }
      }
 
