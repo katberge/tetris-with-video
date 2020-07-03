@@ -12,8 +12,14 @@ body {
     border: 1px solid gray;
 }
 
+#game-over {
+    display: none;
+    padding: 15px;
+}
+
 h3 {
     font-size: 20px;
+    margin: 15px 0;
 }
 
 li {
@@ -28,6 +34,8 @@ li {
 button {
     width: 80%;
     font-family: inherit;
+    padding: 10px 0;
+    margin-bottom: 5px;
 }
 
 #container {

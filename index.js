@@ -180,6 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // to show next-up Tetromino in the mini grid
+    const nextDisplay = (document.querySelector(".next-display"));
     const displaySquares = (document.querySelectorAll(".mini-grid div"));
     const displayWidth = 5;
     const displayIndex = 0;
@@ -257,13 +258,20 @@ document.addEventListener('DOMContentLoaded', () => {
             timerId = setInterval(moveDown, milliseconds);
         }
     }
-        
+
     // creates a way to lose the game (game over)
+    const gameOverMessage = document.querySelector("#game-over");
+    const controls = document.querySelector("#controls");
+
     function gameOver() {
         if (current.some(i => squares[currentPosition + i].classList.contains("taken"))) {
             clearInterval(timerId);
-            alert("Game Over :(");
-            location.reload();
+            gameOverMessage.style.display = "flex";
+            restartBtn.style.margin = "15px";
+            grid.style.display = "none";
+            nextDisplay.style.display = "none";
+            controls.style.display = "none";
+            startBtn.style.display = "none";
         }
     }
 })

@@ -12,15 +12,19 @@
     
     <div id="container">
         <div class="info-box">
+            <h2 id="game-over">Game Over :(</h2>
             <h3>Level: <span id="level">1</span></h3>
             <h3>Score: <span id="score"></span></h3>
             <button id="start-button">Start/Pause</button>
             <button id="restart-button">Restart</button>
-            <h4 id="controls-title">Controls</h4>
-                <p><img class="icon" src="https://www.iconexperience.com/_img/v_collection_png/256x256/shadow/keyboard_key_left.png" alt="left arrow keyboard key">Move Left</p>
-                <p><img class="icon" src="https://www.iconexperience.com/_img/v_collection_png/256x256/shadow/keyboard_key_right.png" alt="right arrow keyboard key">Move Right</p>
-                <p><img class="icon" src="https://www.iconexperience.com/_img/v_collection_png/256x256/shadow/keyboard_key_down.png" alt="down arrow keyboard key">Soft Drop</p>
-                <p><img class="icon" src="https://www.iconexperience.com/_img/v_collection_png/256x256/shadow/keyboard_key_up.png" alt="up arrow keyboard key">Rotate</p>
+            <div id="controls">
+                <h4 id="controls-title">Controls</h4>
+                    <p><img class="icon" src="https://www.iconexperience.com/_img/v_collection_png/256x256/shadow/keyboard_key_left.png" alt="left arrow keyboard key">Move Left</p>
+                    <p><img class="icon" src="https://www.iconexperience.com/_img/v_collection_png/256x256/shadow/keyboard_key_right.png" alt="right arrow keyboard key">Move Right</p>
+                    <p><img class="icon" src="https://www.iconexperience.com/_img/v_collection_png/256x256/shadow/keyboard_key_down.png" alt="down arrow keyboard key">Soft Drop</p>
+                    <p><img class="icon" src="https://www.iconexperience.com/_img/v_collection_png/256x256/shadow/keyboard_key_up.png" alt="up arrow keyboard key">Rotate</p>
+       
+            </div>
         </div>
 
         <div class="grid">
@@ -236,7 +240,7 @@
             <div class="taken"></div>
         </div>
 
-        <div>
+        <div class="next-display">
             <h4 id="display-label">Up Next</h4>
             <div class="mini-grid">
                 <div></div>
