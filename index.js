@@ -122,6 +122,9 @@ document.addEventListener('DOMContentLoaded', () => {
             hardDrop();
             e.preventDefault();
         }
+        if (e.keyCode == 16) {
+            switchPieces();
+        }
      }
 
      document.addEventListener("keydown", control);
@@ -195,6 +198,21 @@ document.addEventListener('DOMContentLoaded', () => {
         freeze();
     } 
 
+    function switchPieces() {
+        if (random !== nextRandom) {
+            // switch random and nextRandom
+            let temp = random;
+            random = nextRandom;
+            nextRandom = temp;
+            // redraw current with newly assigned random
+            undraw();
+            current = theTetrominoes[random][currentRotation];
+            draw();
+            //redraw display shape with newly assigned nextRandom
+            displayShape();
+        }
+    }
+
     // to show next-up Tetromino in the mini grid
     const nextDisplay = (document.querySelector(".next-display"));
     const displaySquares = (document.querySelectorAll(".mini-grid div"));
@@ -253,7 +271,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (row.every(i => squares[i].classList.contains("taken"))) {
                 score += 10;
                 scoreDisplay.innerHTML = score;
-                // check levelUp functiion when score updates
+                // check levelUp functiion when score updates`
                 levelUp();
                 // remove row
                 row.forEach(i => {
