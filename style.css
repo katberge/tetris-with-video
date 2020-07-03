@@ -3,6 +3,7 @@ body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-image: url(https://ak.picdn.net/shutterstock/videos/1024872992/thumb/1.jpg);
     background-size: cover;
+    background-attachment: fixed;
 }
 
 .info-box {
@@ -50,20 +51,26 @@ button {
     justify-content: center;
     background-color: rgb(230, 230, 230);
     border: 3px ridge gray;
-    width: 500px;
+    width: 600px;
     margin: auto;
     padding: 20px 10px;
 }
 
 .grid {
-   width: 200px;
-   height: 400px;
+   width: 250px;
+   height: 500px;
    display: flex;
    flex-wrap: wrap;
    background-color: rgb(250, 250, 119);
    border: 1px solid gray;
 }
-.grid div,
+.grid div {
+    width: 22.5px;
+    height: 22.5px;
+    margin: 1.25px;
+    justify-content: space-between;
+}
+
 .mini-grid div {
     width: 18px;
     height: 18px;
@@ -89,4 +96,24 @@ button {
     flex-wrap: wrap;
     background-color: paleturquoise;
     border-top: 0px;
+}
+
+@media (max-height: 600px), (max-width: 600px) {
+    .grid {
+        width: 200px;
+        height: 400px;
+     }
+     .grid div{
+         width: 18px;
+         height: 18px;
+         margin: 1px;
+     }
+     #container {
+         width: 500px;
+     }
+     button {
+        width: 40%;
+        padding: 0;
+        margin-bottom: 0;
+    }
 }
