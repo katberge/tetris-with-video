@@ -133,9 +133,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
      }
 
-     document.addEventListener("keydown", control);
-     document.addEventListener("keyup", keyUpControl);
-
     // makes Tetrominos move down every second
     function moveDown() { 
         undraw();
