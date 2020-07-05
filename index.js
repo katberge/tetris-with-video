@@ -145,6 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function freeze() {
         if (current.some(i => squares[currentPosition + i + width].classList.contains("taken"))) {
             current.forEach(i => squares[currentPosition + i].classList.add("taken"));
+            addScore();
             // start new Tetromino falling
             random = nextRandom;
             nextRandom = Math.floor(Math.random() * theTetrominoes.length);
@@ -152,7 +153,6 @@ document.addEventListener('DOMContentLoaded', () => {
             currentPosition = 4;
             draw();
             displayShape();
-            addScore();
             gameOver();
         }
     }
@@ -274,7 +274,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (row.every(i => squares[i].classList.contains("taken"))) {
                 score += 10;
                 scoreDisplay.innerHTML = score;
-                // check levelUp functiion when score updates`
+                // check levelUp function when score updates`
                 levelUp();
                 // remove row
                 row.forEach(i => {
